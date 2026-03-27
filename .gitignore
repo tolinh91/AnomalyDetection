@@ -1,5 +1,7 @@
 # Large training datasets and generated artifacts
-/data/
+/data/*
+!/data/N10S10/
+!/data/N10S10/**
 
 # Archived dataset bundles
 *.zip
