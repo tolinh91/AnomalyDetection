@@ -1,0 +1,9 @@
+# Large training datasets and generated artifacts
+/data/
+
+# Archived dataset bundles
+*.zip
+
+# Python cache artifacts
+__pycache__/
+*.pyc
