@@ -1,1 +1,10 @@
 data/N10S10/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N20S20/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N30S1/N30S1.csv filter=lfs diff=lfs merge=lfs -text
+data/N30S1/userSamples_train.csv filter=lfs diff=lfs merge=lfs -text
+data/N30S10/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N30S30/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N30S5/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N40S40/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N50S50/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
+data/N60S60/userSamples_test.csv filter=lfs diff=lfs merge=lfs -text
