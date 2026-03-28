@@ -31,8 +31,8 @@ chuỗi thời gian (time series) đã nhận được nhiều sự quan tâm tr
 học thuật và công nghiệp trong hơn sáu thập kỷ qua. Tùy thuộc vào ứng
 dụng, các bất thường có thể được phân loại thành
 
-1\. Nhiễu hoặc dữ liệu lỗi, gây cản trở quá trình phân tích dữ liệu; 2.
-Dữ liệu thực sự có giá trị cần quan tâm.
+1\. Nhiễu hoặc dữ liệu lỗi, gây cản trở quá trình phân tích dữ liệu; 
+2\.Dữ liệu thực sự có giá trị cần quan tâm.
 
 Trong trường hợp thứ nhất, các bất thường là dữ liệu không mong muốn và
 sẽ bị loại bỏ hoặc được chỉnh sửa. Trong trường hợp thứ hai, các bất
