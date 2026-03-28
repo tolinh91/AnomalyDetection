@@ -65,7 +65,7 @@ Cách tiếp cận này thường xuất hiện trong các bài toán làm sạc
 | 3. Dự đoán (Prediction-based) | Dự báo (Forecasting): học quá khứ để dự đoán tương lai, bất thường = sai số lớn | Exponential Smoothing, OceanWNN, NoveltySVR | Rất mạnh mẽ trong nhận diện các biến động chệch hướng hoàn toàn so với xu hướng chung | Yêu cầu tập dữ liệu huấn luyện đủ tốt | Phân tích chuỗi thời gian phức tạp, đánh giá sai lệch / lỗi tái thiết |
 | 3. Dự đoán (Prediction-based) | Tái thiết (Reconstruction): nén và giải mã chuỗi, bất thường = lỗi tái thiết cao | Autoencoder (LSTM-VAE, DONUT, OmniAnomaly...), GAN (MAD-GAN, VAE-GAN...) | Rất mạnh mẽ trong nhận diện các biến động chệch hướng hoàn toàn so với xu hướng chung | Yêu cầu tập dữ liệu huấn luyện đủ tốt | Phân tích chuỗi thời gian phức tạp, đánh giá sai lệch / lỗi tái thiết |
 
-# Proposed Method
+# Phương pháp đề xuất (Proposed Method)
 
 ### K-Nearest Neighbors (KNN) - Phương pháp dựa trên khoảng cách
 
