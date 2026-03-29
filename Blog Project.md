@@ -53,6 +53,8 @@ Cách tiếp cận này thường xuất hiện trong các bài toán làm sạc
 
 # Các phương pháp nhận biết điểm bất thường
 
+# Các phương pháp nhận biết điểm bất thường
+
 <table>
   <thead>
     <tr>
@@ -117,7 +119,6 @@ Cách tiếp cận này thường xuất hiện trong các bài toán làm sạc
     </tr>
   </tbody>
 </table>
-
 # Phương pháp đề xuất (Proposed Method)
 
 ### K-Nearest Neighbors (KNN) - Phương pháp dựa trên khoảng cách
