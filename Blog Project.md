@@ -53,6 +53,8 @@ Cách tiếp cận này thường xuất hiện trong các bài toán làm sạc
 
 # Các phương pháp nhận biết điểm bất thường
 
+# Các phương pháp nhận biết điểm bất thường
+
 | Nhóm phương pháp | Hướng tiếp cận | Các mô hình | Ưu điểm | Nhược điểm | Ứng dụng |
 |---|---|---|---|---|---|
 | 1. Khoảng cách (Distance-based) | Mức độ lân cận: điểm cô lập với hàng xóm | KNN, LOF | Giữ nguyên bản dữ liệu, dễ triển khai | Gặp khó khăn nếu các điểm bất thường co cụm lại với nhau | Chủ yếu dùng trong học unsupervised, dữ liệu không nhãn, tìm điểm nằm ngoài phân phối |
@@ -64,7 +66,6 @@ Cách tiếp cận này thường xuất hiện trong các bài toán làm sạc
 |  | Mã hóa: nén dữ liệu và so sánh độ khớp | PCA, GrammarViz, HMM |  |  |  |
 | 3. Dự đoán (Prediction-based) | Dự báo (Forecasting): học quá khứ để dự đoán tương lai, bất thường = sai số lớn | Exponential Smoothing, OceanWNN, NoveltySVR | Rất mạnh mẽ trong nhận diện các biến động chệch hướng hoàn toàn so với xu hướng chung | Yêu cầu tập dữ liệu huấn luyện đủ tốt | Phân tích chuỗi thời gian phức tạp, đánh giá sai lệch / lỗi tái thiết |
 |  | Tái thiết (Reconstruction): nén và giải mã chuỗi, bất thường = lỗi tái thiết cao | Autoencoder (LSTM-VAE, DONUT, OmniAnomaly...), GAN (MAD-GAN, VAE-GAN...) |  |  |  |
-
 # Phương pháp đề xuất (Proposed Method)
 ### K-Nearest Neighbors (KNN) - Phương pháp dựa trên khoảng cách
 
