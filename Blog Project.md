@@ -52,72 +52,19 @@ Cách tiếp cận này thường xuất hiện trong các bài toán làm sạc
 ![Hình 1. Phân loại điểm bất thường trong dữ liệu dạng chuỗi thời gian](source/ClassificationOfAnomaly.jpg)
 
 # Các phương pháp nhận biết điểm bất thường
-<h1>Các phương pháp nhận biết điểm bất thường</h1>
+# Các phương pháp nhận biết điểm bất thường
 
-<table border="1" cellspacing="0" cellpadding="8">
-  <thead>
-    <tr>
-      <th>Nhóm phương pháp</th>
-      <th>Hướng tiếp cận</th>
-      <th>Các mô hình</th>
-      <th>Ưu điểm</th>
-      <th>Nhược điểm</th>
-      <th>Ứng dụng</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3">1. Khoảng cách (Distance-based)</td>
-      <td>Mức độ lân cận: điểm cô lập với hàng xóm</td>
-      <td>KNN, LOF</td>
-      <td rowspan="3">Giữ nguyên bản dữ liệu, dễ triển khai</td>
-      <td rowspan="3">Gặp khó khăn nếu các điểm bất thường co cụm lại với nhau</td>
-      <td rowspan="3">Chủ yếu dùng trong học unsupervised, dữ liệu không nhãn, tìm điểm nằm ngoài phân phối</td>
-    </tr>
-    <tr>
-      <td>Phân cụm: không thuộc cụm nào / xa tâm</td>
-      <td>K-means, DBSCAN, MCOD</td>
-    </tr>
-    <tr>
-      <td>Sự bất đồng: chuỗi con xa điểm lân cận nhất</td>
-      <td>Matrix Profile, HOT SAX, DAD</td>
-    </tr>
-
-    <tr>
-      <td rowspan="4">2. Mật độ / Cấu trúc (Density-based)</td>
-      <td>Phân phối: dùng đặc trưng thống kê</td>
-      <td>MCD, OCSVM, HBOS</td>
-      <td rowspan="4">Bắt được các điểm phức tạp, có tính chu kỳ hoặc cấu trúc liên kết</td>
-      <td rowspan="4">Tiền xử lý phức tạp, đòi hỏi biểu diễn dữ liệu chính xác</td>
-      <td rowspan="4">Hiệu quả với dữ liệu nhiễu, chuỗi thời gian đa biến, thiết lập semi-supervised</td>
-    </tr>
-    <tr>
-      <td>Đồ thị: xét đường đi / bậc nút bất thường</td>
-      <td>FSM, Series2Graph</td>
-    </tr>
-    <tr>
-      <td>Dạng cây: điểm bị cô lập ở node thấp</td>
-      <td>Isolation Forest (IForest)</td>
-    </tr>
-    <tr>
-      <td>Mã hóa: nén dữ liệu và so sánh độ khớp</td>
-      <td>PCA, GrammarViz, HMM</td>
-    </tr>
-
-    <tr>
-      <td rowspan="2">3. Dự đoán (Prediction-based)</td>
-      <td>Dự báo (Forecasting): học quá khứ để dự đoán tương lai, bất thường = sai số lớn</td>
-      <td>Exponential Smoothing, OceanWNN, NoveltySVR</td>
-      <td rowspan="2">Rất mạnh mẽ trong nhận diện các biến động chệch hướng hoàn toàn so với xu hướng chung</td>
-      <td rowspan="2">Yêu cầu tập dữ liệu huấn luyện đủ tốt</td>
-      <td rowspan="2">Phân tích chuỗi thời gian phức tạp, đánh giá sai lệch / lỗi tái thiết</td>
-    </tr>
-    <tr>
-      <td>Tái thiết (Reconstruction): nén và giải mã chuỗi, bất thường = lỗi tái thiết cao</td>
-      <td>Autoencoder (LSTM-VAE, DONUT, OmniAnomaly...), GAN (MAD-GAN, VAE-GAN...)</td>
-    </tr>
-  </tbody>
-</table>
+| Nhóm phương pháp | Hướng tiếp cận | Các mô hình | Ưu điểm | Nhược điểm | Ứng dụng |
+|---|---|---|---|---|---|
+| 1. Khoảng cách (Distance-based) | Mức độ lân cận: điểm cô lập với hàng xóm | KNN, LOF | Giữ nguyên bản dữ liệu, dễ triển khai | Gặp khó khăn nếu các điểm bất thường co cụm lại với nhau | Chủ yếu dùng trong học unsupervised, dữ liệu không nhãn, tìm điểm nằm ngoài phân phối |
+|  | Phân cụm: không thuộc cụm nào / xa tâm | K-means, DBSCAN, MCOD |  |  |  |
+|  | Sự bất đồng: chuỗi con xa điểm lân cận nhất | Matrix Profile, HOT SAX, DAD |  |  |  |
+| 2. Mật độ / Cấu trúc (Density-based) | Phân phối: dùng đặc trưng thống kê | MCD, OCSVM, HBOS | Bắt được các điểm phức tạp, có tính chu kỳ hoặc cấu trúc liên kết | Tiền xử lý phức tạp, đòi hỏi biểu diễn dữ liệu chính xác | Hiệu quả với dữ liệu nhiễu, chuỗi thời gian đa biến, thiết lập semi-supervised |
+|  | Đồ thị: xét đường đi / bậc nút bất thường | FSM, Series2Graph |  |  |  |
+|  | Dạng cây: điểm bị cô lập ở node thấp | Isolation Forest (IForest) |  |  |  |
+|  | Mã hóa: nén dữ liệu và so sánh độ khớp | PCA, GrammarViz, HMM |  |  |  |
+| 3. Dự đoán (Prediction-based) | Dự báo (Forecasting): học quá khứ để dự đoán tương lai, bất thường = sai số lớn | Exponential Smoothing, OceanWNN, NoveltySVR | Rất mạnh mẽ trong nhận diện các biến động chệch hướng hoàn toàn so với xu hướng chung | Yêu cầu tập dữ liệu huấn luyện đủ tốt | Phân tích chuỗi thời gian phức tạp, đánh giá sai lệch / lỗi tái thiết |
+|  | Tái thiết (Reconstruction): nén và giải mã chuỗi, bất thường = lỗi tái thiết cao | Autoencoder (LSTM-VAE, DONUT, OmniAnomaly...), GAN (MAD-GAN, VAE-GAN...) |  |  |  |
 
 # Phương pháp đề xuất (Proposed Method)
 ### K-Nearest Neighbors (KNN) - Phương pháp dựa trên khoảng cách
