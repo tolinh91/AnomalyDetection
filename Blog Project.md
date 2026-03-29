@@ -96,3 +96,56 @@ thường tỷ lệ thuận với khoảng cách từ nó đến tâm cụm gầ
 đặc biệt hiệu quả trong việc xử lý các tập dữ liệu lớn để nhanh chóng
 bóc tách những nhóm hành vi chệch hướng hoàn toàn so với quần thể chung
 (global outliers).
+
+# Case study: Phân tích Hiệu suất Phát hiện Ransomware qua Lưu lượng Mạng
+
+## Tổng quan dữ liệu nghiên cứu
+Nghiên cứu sử dụng tập dữ liệu `N10S10.csv` nhằm mục đích phát hiện các hành vi tấn công của ransomware thông qua việc phân tích lưu lượng mạng.
+
+- **Quy mô mẫu**: Dataset bao gồm tổng cộng **24,733** mẫu bình thường (label = 0) và **14,261** mẫu ransomware (label = 1).
+- **Cấu trúc thời gian**: Mỗi mẫu dữ liệu đại diện cho hành vi mạng được ghi nhận trong một khoảng thời gian cụ thể là **10 giây**.
+- **Đặc trưng**: Trong mỗi giây, hệ thống ghi nhận **3 đặc trưng**, do đó tổng số đặc trưng cho mỗi mẫu là **30 features** ($10 \times 3$).
+
+Việc sử dụng dataset này cho phép phân tích hành vi truy cập file qua mạng theo thời gian, từ đó hỗ trợ phát hiện các dấu hiệu bất thường một cách hiệu quả.
+
+---
+
+##  Mô tả các đặc trưng kỹ thuật trong bộ dữ liệu
+Mỗi giây trong khoảng thời gian quan sát sẽ bao gồm ba loại thông tin chính phản ánh các hành vi điều khiển, đọc và ghi dữ liệu:
+
+1. **Số lượng lệnh ngắn (Short commands)**: Đại diện cho các lệnh điều khiển (control commands), thường xuất hiện trong các thao tác nhanh của hệ thống.
+2. **Dữ liệu từ server đến client (Read actions)**: Lượng dữ liệu (TCP bytes) gửi từ server về client, không bao gồm các lệnh ngắn.
+3. **Dữ liệu từ client đến server (Write actions)**: Lượng dữ liệu (TCP bytes) gửi từ client lên server, không bao gồm các lệnh ngắn.
+
+
+---
+
+## Kết quả thực nghiệm: KNN và K-means
+Nghiên cứu áp dụng hai phương pháp là `K-Nearest Neighbors (KNN)` và `K-means` để đánh giá hiệu suất phát hiện.
+
+### Bảng so sánh chỉ số hiệu suất
+| Phương pháp | Accuracy | Precision | Recall | F1-score |
+|---|---|---|---|---|
+| **KNN** | 0.97 | 0.97 | 0.97 | 0.97 |
+| **K-means** | 0.87 | 0.90 | 0.73 | 0.81 |
+
+### Phân tích chi tiết
+- **KNN**: Đạt hiệu suất rất cao và ổn định. Đặc biệt, khả năng phát hiện ransomware (Recall lớp 1) đạt **0.98**, cho thấy mô hình gần như không bỏ sót các mẫu tấn công.
+- **K-means**: Có hiệu suất thấp hơn đáng kể. Điểm yếu nghiêm trọng nhất là có tới **769 mẫu ransomware bị phân loại sai** (False Negative), gây rủi ro lớn trong bài toán an ninh mạng.
+
+---
+
+## Kết luận
+Kết quả thực nghiệm cho thấy sự khác biệt rõ ràng giữa hai phương pháp:
+
+- **KNN** là phương pháp học có giám sát, sử dụng nhãn để học ranh giới phân loại nên cho độ chính xác cao.
+- **K-means** là phương pháp không giám sát, chỉ dựa trên khoảng cách nên khó phân biệt khi dữ liệu có sự chồng lấn giữa các lớp.
+
+**Lời khuyên**: Khi có dữ liệu gán nhãn, **KNN là lựa chọn tối ưu**. K-means vẫn có thể sử dụng khi không có nhãn nhưng hiệu quả sẽ bị hạn chế và cần cân nhắc kỹ về độ chính xác trong ứng dụng thực tế.
+
+
+
+
+
+
+
